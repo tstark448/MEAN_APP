@@ -1,0 +1,69 @@
+<section>
+
+  <div class="page-header">
+    <h1>Reviews</h1>
+  </div>
+<!--
+<input type="text" ng-model="searchBox">
+  <div ng-controller="reviews">
+    <ul>
+      <h2>Search Reviews by Title and Rating:</h2>
+      <li ng-repeat="review in reviews | filter:searchBox">
+          {{ review.Title + ' : ' + review.Rating }}
+        </li>
+      </ul>
+    </div>
+-->
+
+<!--___________________________Search Input________________________________________-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input[type=text1] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text1]:focus {
+    width: 100%;
+}
+  
+</style>
+</head>
+<body>
+
+<h3>Search Reviews:</h3>
+
+<form>
+  <input type="text1" name="search" ng-model="searchText" placeholder="Search by Title or Contents...">
+</form>
+<br>
+
+<!--Review List-->
+  <div class="list-group">
+    <a ng-repeat="review in vm.reviews | filter:searchText"
+       ui-sref="reviews.view({ reviewId: review._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="review.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="review.user" ng-bind="review.user.displayName"></span>
+        <span ng-if="!review.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="review.title"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.reviews.$resolved && !vm.reviews.length">
+    No Reviews yet, why don't you <a ui-sref="reviews.create">create one</a>?
+  </div>
+</section>

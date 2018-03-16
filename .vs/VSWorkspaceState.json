@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\modules",
+    "\\modules\\core",
+    "\\modules\\core\\client",
+    "\\modules\\core\\client\\views",
+    "\\modules\\reviews",
+    "\\modules\\reviews\\client",
+    "\\modules\\reviews\\client\\views"
+  ],
+  "SelectedNode": "\\modules\\core\\client\\views\\home.client.view.html",
+  "PreviewInSolutionExplorer": false
+}
